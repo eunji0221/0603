@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <h1>Singup Project</h1>
+    <img src="{% static 'maru.jpg' %}" height="400" alt="냥">
+    <div>
+        <a href="{% url 'new' %}">Write Your Information</a>
+    </div>
+    
+    {% for signup in signup.all %}
+        <h1>{{signup.name}}</h1>
+        {{signup.pub_date}}<br>
+        {{signup.age}}<br>        
+        {{signup.email}}<br>
+        {{signup.introduce}}<br>
+        <img src="{{static.image.url}}" height="400"><br>
+
+        <a href="{% url 'detail' signup.id %}">...more</a>
+    {% endfor %}
+{% endblock %}
+
+
+</body>
+</html>
